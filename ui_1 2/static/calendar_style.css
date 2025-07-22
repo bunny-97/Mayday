@@ -1,0 +1,128 @@
+/* 전체 이제우 코드 */
+/* Google Fonts 사용을 위한 임포트 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 전체 페이지 스타일 */
+body {
+    /* 전체 글꼴을 Poppins 폰트로 설정 */
+    font-family: 'Poppins', sans-serif;
+    /* 화면 중앙 정렬 (수평) - justify-content, 정렬 요소 위쪽에 배치 - align-items: start */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* 화면 전체 높이를 사용하고, 기본 여백 제거 */
+    height: 100vh;
+    margin: 0;
+    /* 배경색 흰색 */
+    background-color: #fff;
+}
+
+/* 달력 전체를 감싸는 컨테이너 */
+.calendar-container {
+    /* 텍스트 중앙 정렬 */
+    text-align: center;
+    /* 너비 100%에서 최대 700px로 제한 */
+    width: 100%;
+    max-width: 700px;
+}
+
+/* 달력 상단 헤더 영역 (이전/다음 달, 현재 월 표시) */
+.calendar-header {
+    /* 헤더는 가로로 배치, 사이 간격 균등 분배 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 글씨 크기, 색상 설정 */
+    font-size: 32px;
+    color: #4a403a;
+    /* 위아래 패딩 설정 */
+    padding: 20px 0;
+    /* 스크롤 시 상단에 고정되도록 sticky 사용 */
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+/* 이전/다음 달로 이동하는 버튼 스타일 */
+.nav-btn {
+    cursor: pointer;
+    color: #4a403a;
+    font-size: 32px;
+}
+
+/* 월 표시 텍스트 스타일 (굵게 표시) */
+.month-display {
+    font-weight: 600;
+}
+
+/* 요일 레이블 영역 */
+.calendar-days {
+    /* 7열의 그리드 레이아웃 */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* 격자 간격, 상하 패딩 설정 */
+    gap: 15px;
+    padding: 15px 0;
+    /* 스크롤 시 헤더 아래에 고정되도록 sticky 사용 */
+    background-color: #fff;
+    position: sticky;
+    top: 70px; /* 헤더 높이에 맞춰 조정 */
+    z-index: 9;
+}
+
+/* 요일명 스타일 (일, 월, 화, ...) */
+.day-label {
+    font-weight: 600;
+    color: #d4a5a5;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* 실제 날짜들이 들어가는 그리드 영역 */
+.calendar-grid {
+    /* 7열의 그리드 레이아웃 */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* 그리드 셀 간격 및 상단 여백 */
+    gap: 15px;
+    padding-top: 15px;
+}
+
+/* 각 날짜를 표시하는 박스 스타일 */
+.date-box {
+    /* 배경 흰색, 글자색 및 글자 크기 설정 */
+    background-color: #fff;
+    color: #4a403a;
+    font-size: 24px;
+    font-weight: 600;
+    /* 위아래 패딩 조정 (박스를 더 크게 보이게) */
+    padding: 20px 0;
+    /* 둥근 모양을 위해 테두리 반지름 설정 */
+    border-radius: 50%;
+    /* 텍스트 및 아이콘 등을 가운데 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 마우스 커서를 포인터로 변경 및 호버 시 애니메이션 전환 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+
+/* 날짜 박스 호버 시 배경 변경 */
+.date-box:hover {
+    background-color: #f5f0eb;
+}
+
+/* 공휴일 날짜 스타일 (글자색을 빨간 계열로 변경) */
+.date-box.holiday {
+    color: #e57373;
+    font-weight: bold;
+}
+
+/* 빈 날짜(다른 달에 속하는 날짜 셀) 스타일 */
+.date-box.empty {
+    background-color: transparent;
+    cursor: default; /* 클릭할 수 없도록 변경 */
+}

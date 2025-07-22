@@ -1,0 +1,31 @@
+<!-- 전체 이제우 코드 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>달력 스케줄러</title>
+    <!-- 외부 CSS 파일 로드 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='calendar_style.css') }}">
+</head>
+<body>
+    <!-- 달력을 감싸는 컨테이너 -->
+    <div class="calendar-container">
+        <!-- 달력 상단 헤더 (이전/다음 달 이동 및 현재 달 표시) -->
+        <div class="calendar-header">
+            <!-- 이전 달로 이동하는 버튼 -->
+            <span class="nav-btn" id="prev-month">◀</span>
+            <!-- 현재 표시되는 달/년도 -->
+            <span class="month-display" id="month-display">Oct 2024</span>
+            <!-- 다음 달로 이동하는 버튼 -->
+            <span class="nav-btn" id="next-month">▶</span>
+        </div>
+        <!-- 실제 날짜들이 표시되는 달력 그리드 영역 -->
+        <div class="calendar-grid" id="calendar-grid">
+            <!-- 달력 내용은 JavaScript를 통해 동적으로 생성 및 삽입됨 -->
+        </div>
+    </div>
+
+    <!-- 달력 동작에 필요한 JS 파일 로드 -->
+    <script src="{{ url_for('static', filename='calendar_script.js') }}"></script>
+</body>
+</html>

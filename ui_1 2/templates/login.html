@@ -1,0 +1,45 @@
+<!-- 전체 이제우 코드 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <!-- 외부 CSS 파일 로드 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+</head>
+<body>
+    <!-- 로그인 컨테이너 -->
+    <div class="login-container">
+        <h2>MAYDAY</h2>
+        <!-- 로그인 폼 -->
+        <form id="login-form">
+            <!-- 아이디 입력 필드 -->
+            <input type="text" id="username" placeholder="아이디" required><br>
+            <!-- 비밀번호 입력 필드 -->
+            <input type="password" id="password" placeholder="비밀번호" required><br>
+            <!-- 로그인 버튼 -->
+            <button type="submit">로그인</button>
+        </form>
+        <!-- 회원가입 유도 메시지 -->
+        <p>아직 회원이 아니신가요? <a href="#" onclick="openSignup()">회원가입</a></p>
+    </div>
+
+    <!-- 회원가입 팝업 영역 -->
+    <div id="signupPopup" style="display: none;" class="popup">
+        <div class="popup-content">
+            <!-- 팝업 닫기 버튼 -->
+            <span class="close" onclick="closeSignup()">&times;</span>
+            <h2>회원가입</h2>
+            <!-- 회원가입 아이디 입력 -->
+            <input type="text" id="signup-username" placeholder="아이디" required><br>
+            <!-- 회원가입 비밀번호 입력 -->
+            <input type="password" id="signup-password" placeholder="비밀번호" required><br>
+            <!-- 가입하기 버튼 -->
+            <button onclick="submitSignup()">가입하기</button>
+        </div>
+    </div>
+
+    <!-- 로그인 관련 스크립트 로드 -->
+    <script src="{{ url_for('static', filename='login_script.js') }}"></script>
+</body>
+</html>
